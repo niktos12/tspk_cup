@@ -1,9 +1,11 @@
-import {Header} from './componets/Header'
+import {Header} from './components/Header'
+import { Presentation } from './components/Presentationt';
 
 function App() {
   return (
     <>
       <Header />
+      <Presentation/>
     </>
   );
 }
