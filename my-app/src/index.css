@@ -10,8 +10,7 @@
 .pres-bg-2{
   background-image: url(../public/images/Counter-Strike_2_-_Background_pixian_ai\ \(1\)\ 1.svg);
   background-repeat: no-repeat;
-  background-position-x: 1000px;
-  background-position-y: 254px;
+ background-position: right bottom;
 }
 
 body {

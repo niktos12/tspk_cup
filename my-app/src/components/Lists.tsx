@@ -2,7 +2,7 @@ import { Disclosure } from '@headlessui/react'
 import { TiArrowSortedDown } from "react-icons/ti";
 export function Lists() {
     return(
-        <div className="flex flex-col items-start justify-center mt-[96px] pl-[230px] m-auto pres-bg-2">
+        <div className="flex flex-col items-start justify-center mt-[96px] pl-20 m-auto pres-bg-2">
             <h1 className="text-8xl font-normal	">Немного о турнире</h1>
 
             <div>
