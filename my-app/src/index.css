@@ -27,3 +27,8 @@ code {
   background-repeat: no-repeat;
   background-position: center;
 }
+.bg-lined{
+  background-image: url("../public/images/Line.svg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
