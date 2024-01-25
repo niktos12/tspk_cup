@@ -3,7 +3,7 @@ import { Navigation } from "./Navigation"
 export function Header() {
     return(
         <header 
-            className="w-full p-12 flex items-center justify-center flex-row"
+            className="w-full p-12 flex items-center justify-center flex-row absolute z-20 top-0"
         >
             <div 
                 className="w-[75%] rounded-[64px] gap-12 flex flex-row items-center 
