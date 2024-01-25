@@ -3,13 +3,22 @@
 @import 'tailwindcss/utilities';
 
 @font-face {
-  font-family: Damione;
+  font-family: 'Damione', sans-serif;
   src: url(../public/DaMiOne-Regular.ttf);
 }
 
+.pres-bg-2{
+  background-image: url(../public/images/Counter-Strike_2_-_Background_pixian_ai\ \(1\)\ 1.svg);
+  background-repeat: no-repeat;
+  background-position-x: 1000px;
+  background-position-y: 254px;
+}
+
 body {
+  max-width: 1920px;
   font-family: 'Montserrat';
   margin: 0;
+  font-family: Montserrat, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

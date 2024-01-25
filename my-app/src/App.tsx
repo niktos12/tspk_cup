@@ -1,4 +1,5 @@
 import {Header} from './components/Header'
+import { Lists } from './components/Lists';
 import { Presentation } from './components/Presentationt';
 
 function App() {
@@ -6,6 +7,7 @@ function App() {
     <>
       <Header />
       <Presentation/>
+      <Lists />
     </>
   );
 }
