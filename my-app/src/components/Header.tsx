@@ -1,6 +1,17 @@
-import { Navigation } from "./Navigation"
+import {Navigation} from "./Navigation"
+import { useState } from 'react';
 
 export function Header() {
+
+    const [isOpen, setIsOpen] = useState(false)
+
+    const openModal = () => {
+        setIsOpen(true)
+    }
+    const closeModal = () => {
+        setIsOpen(false)
+    }
+
     return(
         <header 
             className="w-full p-12 flex items-center justify-center flex-row absolute z-20 top-0"
