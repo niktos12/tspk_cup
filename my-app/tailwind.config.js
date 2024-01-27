@@ -6,8 +6,8 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        'white-transparent': 'rgba(255, 255, 255, 0.20)',
-        'form-text':'rgba(13, 13, 14, 0.50)',
+        'white-transparent': 'rgba(255, 255, 255, 0.2)',
+        'form-text':'rgb(13, 13, 14, 0.6)',
       }
     },
   },

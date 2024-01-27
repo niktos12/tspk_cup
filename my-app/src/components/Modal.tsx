@@ -13,10 +13,10 @@ export function Modal () {
       <div className='z-30 absolute fixed top-0 right-0 left-0 bottom-0'>
       <form
         className="p-12 rounded absolute top-1/6 left-1/2 -translate-x-1/2 
-        translate-y-1/2 flex flex-col gap-8 rounded-[64px] backdrop-blur-xl bg-white-transparent"
+        translate-y-1/2 flex flex-col gap-8 rounded-[64px] backdrop-blur-xl"
         onSubmit={closeModal}
       >
-        <div className='flex flex-row items-center justify-between '>
+        <div className='flex flex-row items-center justify-between'>
           <h1 className="text-4xl text-center mb-2 text-[#3773FF]">Форма на участие</h1>
           <IoCloseCircleOutline onClick={closeModal} className='cursor-pointer text-[#3773FF] w-[39px] h-[39px] hover:text-[#0D0D0E] duration-300'/>
         </div>
