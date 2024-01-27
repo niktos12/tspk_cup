@@ -2,7 +2,7 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@font-face {
+@font-face  {
   font-family: 'Damione', sans-serif;
   src: url(../public/DaMiOne-Regular.ttf);
 }
@@ -14,13 +14,21 @@
 }
 
 body {
-  max-width: 1920px;
-  font-family: 'Montserrat';
+  /* max-width: 1920px; */
+  font-family: 'Montserrat' , sans-serif;
   margin: 0;
-  font-family: Montserrat, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #3773FF;
+  border-radius: 20px;
+}
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -39,4 +47,7 @@ code {
   background-image: url("../public/images/Line.svg");
   background-repeat: no-repeat;
   background-position: bottom;
+}
+.no-scroll{
+  overflow: hidden;
 }

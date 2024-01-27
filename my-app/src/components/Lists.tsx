@@ -9,7 +9,7 @@ export function Lists() {
 
                 <div className="flex flex-col mt-[24px]">
                     <div className="gap-[24px] flex flex-col">
-                        <Disclosure>
+                        <Disclosure defaultOpen={true}>
                         {({ open }) => (
                             <div className="flex flex-col gap-[24px] justify-between rounded-[24px] backdrop-blur-md p-[48px] border-black border">
                                 <Disclosure.Button>

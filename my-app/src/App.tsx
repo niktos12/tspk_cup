@@ -3,28 +3,23 @@ import { Lists } from './components/Lists';
 import { Presentation } from './components/Presentation';
 import { Footer } from './components/Footer';
 import { PartIn } from './components/PartIn';
-import Modal from './components/Modal';
-import { useState } from 'react';
+import { useContext } from 'react';
+import { Modal } from './components/Modal';
+import { ModalProvider } from './context/ModalContext';
+
 
 function App() {
-
-  const [isOpen, setIsOpen] = useState(false)
-
-  const openModal = () => {
-    setIsOpen(true)
-  }
-  const closeModal = () => {
-    setIsOpen(false)
-  }
-
   return (
     <>
+    <ModalProvider>
       <Header />
       <Presentation/>
       <Lists />
+      <Modal/>
       <PartIn/>
-      <Modal isOpen={false} onClose={closeModal}/>
       <Footer/>
+    </ModalProvider>
+      
     </>
   );
 }
