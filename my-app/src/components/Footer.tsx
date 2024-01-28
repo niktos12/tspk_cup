@@ -3,7 +3,9 @@ import { FaDiscord } from "react-icons/fa6";
 
 export function Footer(){
     return(
-            <div className="flex flex-row justify-between items-center bg-[#D4E1FF] py-6 px-24 mt-28">
+            <div 
+                className="flex flex-row justify-between items-center bg-[#D4E1FF] py-6 px-24 mt-28"
+            >
                 <p className="text-[#1F1F25] font-medium">
                     <span className="font-extrabold">ТСПК</span>
                     Cup

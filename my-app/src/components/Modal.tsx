@@ -1,51 +1,145 @@
-import React, { useState } from 'react'
 import { useModal } from '../context/ModalContext';
 import { IoCloseCircleOutline } from "react-icons/io5";
+import { z } from 'zod';
+import {useForm} from 'react-hook-form'
+import {zodResolver} from '@hookform/resolvers/zod'
 
 
-export function Modal () {
-  const { isOpen, closeModal } = useModal();
-  if(!isOpen) return null;
+const tg = z.string().refine((val) => val.startsWith('@'), {
+  message: "Ваш телеграм должен начинаться с '@'"
+});
   
+
+  const formSchema = z.object({
+    firstName: z.string().min(1, { message: "Введите имя" }),
+    lastName: z.string().min(1, { message: "Введите фамилию" }),
+    telegram: tg,
+    group: z.string().min(1, { message: "Выберите группу" }),
+    nameTeam: z.string().min(1, { message: "Введите название команды" })
+  })
+  type FormData = z.infer<typeof formSchema>
+
+const Modal = () => {
+  const { isOpen, closeModal } = useModal();
+
+  const { register, handleSubmit, formState: { errors } ,reset } = useForm<FormData>({
+    resolver: zodResolver(formSchema)
+  })
+
+  const onSubmit = (data: FormData) => {
+    console.log(data)
+    closeModal()
+    reset()
+  }
+
+  if(!isOpen) return null;
 
   return (
     <>
-      <div className='z-30 absolute fixed top-0 right-0 left-0 bottom-0'>
-      <form
-        className="p-12 rounded absolute top-1/6 left-1/2 -translate-x-1/2 
-        translate-y-1/2 flex flex-col gap-8 rounded-[64px] backdrop-blur-xl"
-        onSubmit={closeModal}
+      <div 
+        className='z-30 absolute fixed top-0 right-0 left-0 bottom-0'
       >
-        <div className='flex flex-row items-center justify-between'>
-          <h1 className="text-4xl text-center mb-2 text-[#3773FF]">Форма на участие</h1>
-          <IoCloseCircleOutline onClick={closeModal} className='cursor-pointer text-[#3773FF] w-[39px] h-[39px] hover:text-[#0D0D0E] duration-300'/>
+      <form
+
+        className="p-12 rounded top-1/5 left-1/2 -translate-x-1/2 bg-white-transparent fixed 
+        translate-y-1/3 flex flex-col gap-8 rounded-[64px] backdrop-blur-xl transition-transform duration-300"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <div 
+          className='flex flex-row items-center justify-between'
+        >
+          <h1 
+            className="text-4xl text-center mb-2 text-[#3773FF]"
+          >
+            Форма на участие
+          </h1>
+          <IoCloseCircleOutline 
+            onClick={closeModal} 
+            className='cursor-pointer text-[#3773FF] w-[39px] h-[39px] hover:text-[#0D0D0E] duration-300'
+          />
         </div>
-        <div className='flex flex-row justify-between'>
-          <input placeholder='Имя' className='border-b-2 border-black p-6 pb-1 pl-1 bg-transparent w-[48%] text-[#3773FF] font-black'/>
-          <input placeholder='Фамилия' className='border-b-2 border-black p-6 pb-1 pl-1 bg-transparent w-[48%] text-[#3773FF] font-black'/>
+        <div 
+          className='flex flex-row justify-between'
+        >
+          <div className='flex flex-col w-[48%]'>
+            <input {...register('firstName')} 
+            placeholder='Имя' 
+            className='border-b-2 border-black p-6 pb-1 pl-1 bg-transparent text-[#3773FF] font-black flex flex-col'
+          />{errors.firstName && <p className='text-red-500 '>{errors.firstName.message}</p>}
+          </div>
+          <div className='flex flex-col w-[48%]'>
+            <input {...register('lastName')} 
+            placeholder='Фамилия'
+            className={`border-b-2 border-black p-6 pb-1 pl-1 bg-transparent text-[#3773FF] font-black ${errors.lastName ? 'text-red-500' : ''}`}
+          />{errors.lastName && <p className='text-red-500'>{errors.lastName.message}</p>}
+          </div>
+          
+          
         </div>
-        <div className='flex flex-col gap-8'>
-          <div className='flex flex-col'>
-            <p className=''>Ваш телеграм</p>
-            <input placeholder='@TSPKCup' className='border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black'/>
+        <div 
+          className='flex flex-col gap-8'
+        >
+          <div 
+            className='flex flex-col'
+          >
+            <p 
+              className=''
+            >
+              Ваш телеграм
+            </p>
+            <input {...register('telegram')}
+              placeholder='@TSPKCup' 
+              className='border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black'
+            />{errors.telegram && <p className='text-red-500'>{errors.telegram.message}</p>}
           </div>
-          <div className='flex flex-col'>
-            <p className=''>Группа</p>
-            <input placeholder='ИСиП-11' className='border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black'/>
+          <div 
+            className='flex flex-col'
+          >
+            <p 
+              className=''
+            >
+              Группа
+            </p>
+            <input {...register('group')} 
+              placeholder='ИСиП-11' 
+              className='border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black'
+            />{errors.group && <p className='text-red-500'>{errors.group.message}</p>}
           </div>
-          <div className='flex flex-col'>
-            <p className=''>Команда</p>
-            <input placeholder='NE DOGONYAT' className='border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black'/>
+          <div 
+            className='flex flex-col'
+          >
+            <p 
+              className=''
+            >
+              Команда
+            </p>
+            <input {...register('nameTeam')} 
+              placeholder='NE DOGONYAT' 
+              className='border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black'
+            />{errors.nameTeam && <p className='text-red-500'>{errors.nameTeam.message}</p>}
           </div>
-          <div className='flex flex-col'>
-            <button className='py-4 px-6 bg-[#3773FF] text-[#FFFFFF] rounded-3xl text-3xl font-black'>Отправить</button>
-            <p className=''>Нажимая "Отправить", вы принимаете политику хранения и обработки <a href='https://piybeep.com/privacy_policy.pdf'>персональных данных</a></p>
+          <div 
+            className='flex flex-col'
+          >
+            <button 
+              className='py-4 px-6 bg-[#3773FF] text-[#FFFFFF] rounded-3xl text-3xl font-black'
+            >
+              Отправить
+            </button>
+            <p 
+              className=''
+            >
+              Нажимая "Отправить", вы принимаете политику хранения и обработки <a 
+                href='https://piybeep.com/privacy_policy.pdf'
+              >
+                 персональных данных
+              </a>
+            </p>
           </div>
-           
         </div>
-        
       </form>
       </div>
     </>
   )
 }
+export default Modal

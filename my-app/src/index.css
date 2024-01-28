@@ -2,19 +2,13 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-@font-face  {
-  font-family: 'Damione', sans-serif;
-  src: url(../public/DaMiOne-Regular.ttf);
-}
 
 .pres-bg-2{
   background-image: url(../public/images/Counter-Strike_2_-_Background_pixian_ai\ \(1\)\ 1.svg);
   background-repeat: no-repeat;
- background-position: right bottom;
+  background-position: right bottom;
 }
-
 body {
-  /* max-width: 1920px; */
   font-family: 'Montserrat' , sans-serif;
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -23,21 +17,16 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-thumb {
   background-color: #3773FF;
   border-radius: 20px;
 }
-
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 .custom-header-bg{
   background-color: rgba(212, 225, 255, 0.25);
 }
-
+html{
+  scroll-behavior: smooth;
+}
 .pres-bg{
   background-image: url("../public/images/cs2bg1.png");
   background-repeat: no-repeat;
@@ -50,4 +39,7 @@ code {
 }
 .no-scroll{
   overflow: hidden;
+}
+.inf{
+  --animate-duration:infinite;
 }

@@ -1,5 +1,5 @@
 import { createContext, useState , useContext , ReactNode } from "react";
-import { Modal } from "../components/Modal";
+import Modal from "../components/Modal";
 
 interface ModalContextProps {
     isOpen: boolean;
