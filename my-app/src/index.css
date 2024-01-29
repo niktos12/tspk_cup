@@ -4,15 +4,16 @@
 
 
 .pres-bg-2{
-  background-image: url(../public/images/Counter-Strike_2_-_Background_pixian_ai\ \(1\)\ 1.svg);
+  background-image: url(../public/images/cs2listsbg.png);
   background-repeat: no-repeat;
-  background-position: right bottom;
+  background-position: bottom right;
 }
 body {
   font-family: 'Montserrat' , sans-serif;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: all 0.5s ease;
 }
 ::-webkit-scrollbar {
   width: 8px;
@@ -27,6 +28,7 @@ body {
 html{
   scroll-behavior: smooth;
 }
+
 .pres-bg{
   background-image: url("../public/images/cs2bg1.png");
   background-repeat: no-repeat;

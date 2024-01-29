@@ -3,7 +3,8 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 import { z } from 'zod';
 import {useForm} from 'react-hook-form'
 import {zodResolver} from '@hookform/resolvers/zod'
-
+import data from '../data/data';
+import { group } from 'console';
 
 const tg = z.string().refine((val) => val.startsWith('@'), {
   message: "Ваш телеграм должен начинаться с '@'"
@@ -41,8 +42,8 @@ const Modal = () => {
       >
       <form
 
-        className="p-12 rounded top-1/5 left-1/2 -translate-x-1/2 bg-white-transparent fixed 
-        translate-y-1/3 flex flex-col gap-8 rounded-[64px] backdrop-blur-xl transition-transform duration-300"
+        className="p-12 rounded top-0 left-1/2 -translate-x-1/2 bg-white-transparent fixed 
+        translate-y-1/3 flex flex-col gap-8 rounded-[64px] backdrop-blur-xl transition-transform duration-300 border-[#0D0D0E] border solid"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div 
@@ -98,12 +99,17 @@ const Modal = () => {
             <p 
               className=''
             >
-              Группа
+              Группа (выберите вашу группу)
             </p>
-            <input {...register('group')} 
-              placeholder='ИСиП-11' 
+            <select {...register('group')}
+
               className='border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black'
-            />{errors.group && <p className='text-red-500'>{errors.group.message}</p>}
+              
+            >{errors.group && <p className='text-red-500'>{errors.group.message}</p>}
+            {data.map((item,id) => (
+              <option key={id} value={item.group} className=''>{item.group}</option>
+            ))}
+            </select>
           </div>
           <div 
             className='flex flex-col'
@@ -131,6 +137,7 @@ const Modal = () => {
             >
               Нажимая "Отправить", вы принимаете политику хранения и обработки <a 
                 href='https://piybeep.com/privacy_policy.pdf'
+                className='underline'
               >
                  персональных данных
               </a>

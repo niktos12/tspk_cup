@@ -3,7 +3,7 @@ import { TiArrowSortedDown } from "react-icons/ti";
 export function Lists() {
     return(
         <div 
-            className="flex flex-col items-start justify-center mt-[96px] pl-[96px] m-auto pres-bg-2"
+            className="flex flex-col items-start justify-center mt-[96px] pl-[96px] pres-bg-2 h-[900px]"
             id='lists'
         >
             <h1 
@@ -20,12 +20,14 @@ export function Lists() {
                     >
                         <Disclosure 
                             defaultOpen={true}
+                            as='div'
+                            className='duration-300 transition-all'
                         >
                         {({ open }) => (
                             <div 
                                 className="flex flex-col gap-[24px] justify-between rounded-[24px] backdrop-blur-md p-[48px] border-black border"
                             >
-                                <Disclosure.Button>
+                                <Disclosure.Button className='disclosure-btn'>
                                     <div 
                                         className='flex gap-[16px] items-center'
                                     >
@@ -47,7 +49,7 @@ export function Lists() {
                                     >
                                         Где проходит?
                                     </span>
-                                    <Disclosure.Panel>
+                                    <Disclosure.Panel className={`duration-300 transition-all disclosure-panel`}>
                                         <p 
                                             className='flex text-4xl text-[#1F1F25] mt-[24px] max-w-[934px] text-left'
                                         >

@@ -4,13 +4,10 @@ import { useModal } from '../context/ModalContext';
 
 export function PartIn(){
     const {openModal} = useModal();
-    // const openModalInstance = () => {
-    //     window.scrollTo(0, 0);
-    //     openModal();
-    // }
+    
     return(
         <div 
-            className="flex flex-col items-start justify-center pt-28 px-24 h-[900px] bg-lined"
+            className="flex flex-col items-start justify-center pt-24 px-24 h-[900px] bg-lined"
         >
             <h1 
                 className="text-8xl font-bold mb-3"
@@ -26,7 +23,7 @@ export function PartIn(){
                 className="flex flex-row gap-12 items-center mb-60"
             >
                 <button 
-                    className="py-5 px-11 bg-[#3773FF] text-[#FFFFFF] rounded-3xl text-5xl font-bold"
+                    className="py-6 px-11 bg-[#3773FF] text-[#FFFFFF] rounded-3xl text-5xl font-bold duration-300 hover:rounded-[36px] hover:px-14"
                     onClick={openModal}
                 >
                     Участвовать
@@ -35,10 +32,10 @@ export function PartIn(){
                     className="flex flex-row gap-3"
                 >
                     <FaTelegramPlane 
-                        className="bg-[#D4E1FF] p-5 w-[100px] h-[100px] rounded-3xl cursor-pointer"
+                        className="bg-[#D4E1FF] p-4 w-[100px] h-[100px] rounded-3xl cursor-pointer duration-300 hover:text-[#3773FF] hover:rounded-full hover:scale-90"
                     />
                     <FaDiscord 
-                        className="bg-[#D4E1FF] p-5 w-[100px] h-[100px] rounded-3xl cursor-pointer"
+                        className="bg-[#D4E1FF] p-4 w-[100px] h-[100px] rounded-3xl cursor-pointer duration-300 hover:text-[#3773FF] hover:rounded-full hover:scale-90"
                     />
                 </div>
             </div>

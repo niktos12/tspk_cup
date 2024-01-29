@@ -19,7 +19,7 @@ export function Presentation(){
     
     return(
         <div 
-            className="flex flex-col items-center pres-bg items-center justify-center h-[876px] mt-36"
+            className="flex flex-col items-center pres-bg items-center justify-center h-[876px] mt-[-58px]"
         >   <div 
                 className="flex flex-row gap-16  items-center justify-center my-40 mb-10"
             >
@@ -33,20 +33,12 @@ export function Presentation(){
                 >
                     По
                 </h1>
-                {/* <Flip duration={900} direction={'horizontal'} delay={1} key={show.toString()}>
-                    <img 
-                    src={process.env.PUBLIC_URL + "/images/LogoCS2.svg"} 
-                    alt=""
-                />
-                </Flip> */}
+                
                 <img 
                     src={process.env.PUBLIC_URL + "/images/LogoCS2.svg"} 
                     alt=""
                     className="animate__animated animate__headShake animate__infinite animate__duration-3s delay-1000 animate__slow"
                 />
-                
-                
-                
             </div>
             <a 
                 className="my-32 cursor-pointer"
@@ -54,7 +46,7 @@ export function Presentation(){
                 href="#lists"   
             >
                 <GoArrowDown 
-                    className="text-[#3773FF] bg-[#D4E1FF] rounded-full p-6 w-[72px] h-[72px]"
+                    className="text-[#3773FF] bg-[#D4E1FF] rounded-full p-6 w-[72px] h-[72px] hover:w-[196px] duration-300"
                     
                 />
             </a>
