@@ -5,7 +5,7 @@ import { useModal } from '../context/ModalContext';
 export function PartIn(){
     const {openModal} = useModal();
     // const openModalInstance = () => {
-    //     window.scrollTo(0, 0);
+    //     window.scrollTo(0, 0); убрать pt-28 в div
     //     openModal();
     // }
     return(
