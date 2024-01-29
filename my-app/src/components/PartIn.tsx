@@ -4,7 +4,10 @@ import { useModal } from '../context/ModalContext';
 
 export function PartIn(){
     const {openModal} = useModal();
-    
+    // const openModalInstance = () => {
+    //     window.scrollTo(0, 0);
+    //     openModal();
+    // }
     return(
         <div 
             className="flex flex-col items-start justify-center pt-24 px-24 h-[900px] bg-lined"
