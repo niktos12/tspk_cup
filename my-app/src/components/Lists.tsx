@@ -3,36 +3,37 @@ import { TiArrowSortedDown } from "react-icons/ti";
 export function Lists() {
     return(
         <div 
-            className="flex flex-col items-start justify-center mt-[96px] pl-[96px] pres-bg-2 h-[900px]"
+            className="flex flex-col items-start justify-center mt-[96px] pl-[96px] pres-bg-2 h-[900px] xl:p-4 xl:items-center x:items-start x:bg-left-bottom
+            x:bg-contain"
             id='lists'
         >
             <h1 
-                className="text-8xl font-bold"
+                className="text-8xl font-bold x:text-5xl"
             >
                 Немного о турнире
             </h1>
-            <div>
+            <div className='w-full max-w-[896px]'>
                 <div 
                     className="flex flex-col mt-[24px]"
                 >
                     <div 
-                        className="gap-[24px] flex flex-col"
+                        className="gap-[24px] flex flex-col "
                     >
                         <Disclosure 
                             defaultOpen={true}
                             as='div'
-                            className='duration-300 transition-all'
+                            className='duration-300 transition-all '
                         >
                         {({ open }) => (
                             <div 
-                                className="flex flex-col gap-[24px] justify-between rounded-[24px] backdrop-blur-md p-[48px] border-black border"
+                                className="flex flex-col gap-[24px] justify-between rounded-[24px] backdrop-blur-md p-[48px] border-black border x:p-3"
                             >
                                 <Disclosure.Button className='disclosure-btn'>
                                     <div 
-                                        className='flex gap-[16px] items-center'
+                                        className='flex items-center justify-between'
                                     >
                                         <div 
-                                            className='w-[860px]'
+                                            className=''
                                         >
                                             <img 
                                                 src={process.env.PUBLIC_URL + "/images/Ranking.svg"} 
@@ -45,13 +46,13 @@ export function Lists() {
                                         />
                                     </div>
                                     <span 
-                                        className='text-4xl flex font-semibold mt-[24px]'
+                                        className='text-4xl flex font-semibold mt-[24px] x:text-3xl'
                                     >
                                         Где проходит?
                                     </span>
                                     <Disclosure.Panel className={`duration-300 transition-all disclosure-panel`}>
                                         <p 
-                                            className='flex text-4xl text-[#1F1F25] mt-[24px] max-w-[934px] text-left'
+                                            className='flex text-4xl text-[#1F1F25] mt-[24px] text-left '
                                         >
                                             Первая часть турнира будет проходить онлайн. Финал — в ЦОППе
                                         </p>
@@ -68,14 +69,14 @@ export function Lists() {
                         >
                         {({ open }) => (
                             <div 
-                                className="flex flex-col gap-[24px] justify-between rounded-[24px] backdrop-blur-md p-[48px] border-black border"
+                                className="flex flex-col gap-[24px] justify-between rounded-[24px] backdrop-blur-md p-[48px] border-black border x:p-3"
                             >
                             <Disclosure.Button>
                                 <div 
-                                    className='flex gap-[16px] items-center'
+                                    className='flex justify-between items-center'
                                 >
                                     <div 
-                                        className='w-[860px]'
+                                        className=''
                                     >
                                         <img 
                                             src={process.env.PUBLIC_URL + "/images/Cup.svg"} 
@@ -94,7 +95,7 @@ export function Lists() {
                                 </span>
                                 <Disclosure.Panel>
                                     <p 
-                                        className='flex text-4xl text-[#1F1F25] mt-[24px] w-[934px] text-left'
+                                        className='flex text-4xl text-[#1F1F25] mt-[24px] text-left'
                                     >
                                         Призом турнира будет автомат по любой дисциплине Кондурар М.В (на выбор)
                                     </p>
@@ -106,19 +107,19 @@ export function Lists() {
 
                         <Disclosure 
                             as="div" 
-                            className="flex flex-col w-[1030px] max-h-[228px]"
+                            className="flex flex-col max-h-[228px]"
                             
                         >
                         {({ open }) => (
                             <div 
-                                className="flex flex-col gap-[24px] h-[340px] justify-between rounded-[24px] backdrop-blur-md p-[48px] max-w-[1030px] border-black border"
+                                className="flex flex-col gap-[24px] justify-between rounded-[24px] backdrop-blur-md p-[48px] border-black border x:p-3"
                             >
                             <Disclosure.Button>
                                 <div 
-                                    className='flex gap-[16px] items-center'
+                                    className='flex justify-between items-center'
                                 >
                                     <div 
-                                        className='w-[860px]'
+                                        className=''
                                     >
                                         <img 
                                             src={process.env.PUBLIC_URL + "/images/Pen New Round.svg"} 
@@ -137,7 +138,7 @@ export function Lists() {
                                 </span>
                                 <Disclosure.Panel>
                                     <p 
-                                        className='flex text-4xl text-[#1F1F25] mt-[24px] w-[934px] text-left'
+                                        className='flex text-4xl text-[#1F1F25] mt-[24px] text-left'
                                     >
                                         Следите за новостями в наших телеграм и дискорд каналах
                                     </p>

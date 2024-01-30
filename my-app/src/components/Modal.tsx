@@ -4,23 +4,32 @@ import { z } from 'zod';
 import {useForm} from 'react-hook-form'
 import {zodResolver} from '@hookform/resolvers/zod'
 import data from '../data/data';
-import { group } from 'console';
+import { Select } from '@shopify/polaris';
+import { useState, useCallback } from 'react';
 
 const tg = z.string().refine((val) => val.startsWith('@'), {
   message: "Ваш телеграм должен начинаться с '@'"
 });
+
+  
   
 
   const formSchema = z.object({
     firstName: z.string().min(1, { message: "Введите имя" }),
     lastName: z.string().min(1, { message: "Введите фамилию" }),
     telegram: tg,
+    email: z.string().min(1, { message: "Введите почту" }).email({ message: "Неверная почта" }),
     group: z.string().min(1, { message: "Выберите группу" }),
     nameTeam: z.string().min(1, { message: "Введите название команды" })
   })
   type FormData = z.infer<typeof formSchema>
 
 const Modal = () => {
+const [selected, setSelected] = useState('ОИС-11')
+
+  const handleSelect = useCallback((value: string) => setSelected(value), []);
+  const options = data.map((item) => ({ value: item.group, label: item.id }));
+
   const { isOpen, closeModal } = useModal();
 
   const { register, handleSubmit, formState: { errors } ,reset } = useForm<FormData>({
@@ -93,6 +102,16 @@ const Modal = () => {
               className='border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black'
             />{errors.telegram && <p className='text-red-500'>{errors.telegram.message}</p>}
           </div>
+          <div className='flex flex-col'>
+            <p 
+              className=''
+            >
+              Ваша почта
+            </p>
+            <input {...register('email')}
+              className='border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black' 
+              placeholder='TSPKCup@mail.ru'/>{errors.email && <p className='text-red-500'>{errors.email.message}</p>}
+          </div>
           <div 
             className='flex flex-col'
           >
@@ -101,6 +120,9 @@ const Modal = () => {
             >
               Группа (выберите вашу группу)
             </p>
+           
+
+            
             <select {...register('group')}
 
               className='border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black'

@@ -10,7 +10,7 @@ export function PartIn(){
     // }
     return(
         <div 
-            className="flex flex-col items-start justify-center pt-24 px-24 h-[900px] bg-lined"
+            className="flex flex-col items-start justify-center pt-24 px-24 h-[900px] bg-lined x:items-center x:text-left"
         >
             <h1 
                 className="text-8xl font-bold mb-3"
@@ -23,7 +23,7 @@ export function PartIn(){
                 Вам нужно заполнить простую форму, зайти в каналы и ждать новостей
             </p>
             <div 
-                className="flex flex-row gap-12 items-center mb-60"
+                className="flex flex-row gap-12 items-center mb-60 x:w-full x:gap-6"
             >
                 <button 
                     className="py-6 px-11 bg-[#3773FF] text-[#FFFFFF] rounded-3xl text-5xl font-bold duration-300 hover:rounded-[36px] hover:px-14"
@@ -32,13 +32,15 @@ export function PartIn(){
                     Участвовать
                 </button>
                 <div 
-                    className="flex flex-row gap-3"
+                    className="flex flex-row gap-3 x:items-center x:justify-center "
                 >
                     <FaTelegramPlane 
-                        className="bg-[#D4E1FF] p-4 w-[100px] h-[100px] rounded-3xl cursor-pointer duration-300 hover:text-[#3773FF] hover:rounded-full hover:scale-90"
+                        className="bg-[#D4E1FF] p-4 w-[100px] h-[100px] rounded-3xl cursor-pointer duration-300 hover:text-[#3773FF] hover:rounded-full hover:scale-90 
+                         x:max-w-[424px] x:h-[100px] x:p-3 x:w-full"
                     />
                     <FaDiscord 
-                        className="bg-[#D4E1FF] p-4 w-[100px] h-[100px] rounded-3xl cursor-pointer duration-300 hover:text-[#3773FF] hover:rounded-full hover:scale-90"
+                        className="bg-[#D4E1FF] p-4 w-[100px] h-[100px] rounded-3xl cursor-pointer duration-300 hover:text-[#3773FF] hover:rounded-full hover:scale-90 
+                         x:max-w-[424px] x:h-[100px] x:p-4 x:w-full "
                     />
                 </div>
             </div>

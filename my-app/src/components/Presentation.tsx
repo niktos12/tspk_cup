@@ -19,17 +19,17 @@ export function Presentation(){
     
     return(
         <div 
-            className="flex flex-col items-center pres-bg items-center justify-center h-[876px] mt-[-58px]"
+            className="flex flex-col items-center pres-bg items-center justify-center h-[876px] mt-[-58px] 3xl:h-[100%] x:h-[100%] x:mt-0 bg-contain"
         >   <div 
-                className="flex flex-row gap-16  items-center justify-center my-40 mb-10"
+                className="flex flex-row gap-16 items-center justify-center my-40 mb-10 3xl:flex-col 3xl:mt-20 3xl:gap-8 3xl:mb-0 x:flex-row x:my-40"
             >
                 <h1 
-                    className="text-[#1F1F25] text-9xl uppercase font-bold"
+                    className="text-[#1F1F25] text-9xl uppercase font-bold x:text-6xl"
                 >
                     Турнир
                 </h1>
                 <h1 
-                    className="text-[#1F1F25] text-9xl uppercase font-bold"
+                    className="text-[#1F1F25] text-9xl uppercase font-bold x:text-6xl"
                 >
                     По
                 </h1>
@@ -37,11 +37,11 @@ export function Presentation(){
                 <img 
                     src={process.env.PUBLIC_URL + "/images/LogoCS2.svg"} 
                     alt=""
-                    className="animate__animated animate__headShake animate__infinite animate__duration-3s delay-1000 animate__slow"
+                    className="animate__animated animate__headShake animate__infinite animate__duration-3s delay-1000 animate__slow x:w-[300px] "
                 />
             </div>
             <a 
-                className="my-32 cursor-pointer"
+                className="my-32 cursor-pointer 3xl:mb-16 x:mt-0"
                 style={{scrollBehavior: "smooth"}}
                 href="#lists"   
             >
