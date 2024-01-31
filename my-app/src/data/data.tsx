@@ -1,5 +1,9 @@
 const data = [
     {
+        group: 'ИСиП-11',
+        id:0,
+    },
+    {
         group:'ПДО-11',
         id:1,
     },

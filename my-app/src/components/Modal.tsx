@@ -4,19 +4,22 @@ import { z } from 'zod';
 import {useForm} from 'react-hook-form'
 import {zodResolver} from '@hookform/resolvers/zod'
 import data from '../data/data';
-import { Select } from '@shopify/polaris';
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 
 const tg = z.string().refine((val) => val.startsWith('@'), {
   message: "Ваш телеграм должен начинаться с '@'"
 });
+const fName = z.string().min(1, { message: "Введите имя" }).refine((value) => /^[a-zA-Z]+[-'s]?[a-zA-Z ]+$/.test(value), {
+  message: 'Имя должно содержать только буквы'
+})
+const sName = z.string().min(1, { message: "Введите фамилию" }).refine((value) => /^[a-zA-Z]+[-'s]?[a-zA-Z ]+$/.test(value), {
+  message: 'Фамилия должна содержать только буквы'
+})
 
-  
-  
 
   const formSchema = z.object({
-    firstName: z.string().min(1, { message: "Введите имя" }),
-    lastName: z.string().min(1, { message: "Введите фамилию" }),
+    firstName: fName,
+    lastName: sName,
     telegram: tg,
     email: z.string().min(1, { message: "Введите почту" }).email({ message: "Неверная почта" }),
     group: z.string().min(1, { message: "Выберите группу" }),
@@ -25,10 +28,10 @@ const tg = z.string().refine((val) => val.startsWith('@'), {
   type FormData = z.infer<typeof formSchema>
 
 const Modal = () => {
-const [selected, setSelected] = useState('ОИС-11')
+// const [selected, setSelected] = useState('ОИС-11')
 
-  const handleSelect = useCallback((value: string) => setSelected(value), []);
-  const options = data.map((item) => ({ value: item.group, label: item.id }));
+  // const handleSelect = useCallback((value: string) => setSelected(value), []);
+  // const options = data.map((item) => ({ value: item.group, label: item.id }));
 
   const { isOpen, closeModal } = useModal();
 
@@ -50,7 +53,6 @@ const [selected, setSelected] = useState('ОИС-11')
         className='z-30 absolute fixed top-0 right-0 left-0 bottom-0'
       >
       <form
-
         className="p-12 rounded top-0 left-1/2 -translate-x-1/2 bg-white-transparent fixed 
         translate-y-1/3 flex flex-col gap-8 rounded-[64px] backdrop-blur-xl transition-transform duration-300 border-[#0D0D0E] border solid"
         onSubmit={handleSubmit(onSubmit)}
@@ -72,7 +74,7 @@ const [selected, setSelected] = useState('ОИС-11')
           className='flex flex-row justify-between'
         >
           <div className='flex flex-col w-[48%]'>
-            <input {...register('firstName')} 
+            <input {...register('firstName')}
             placeholder='Имя' 
             className='border-b-2 border-black p-6 pb-1 pl-1 bg-transparent text-[#3773FF] font-black flex flex-col'
           />{errors.firstName && <p className='text-red-500 '>{errors.firstName.message}</p>}
@@ -83,8 +85,6 @@ const [selected, setSelected] = useState('ОИС-11')
             className={`border-b-2 border-black p-6 pb-1 pl-1 bg-transparent text-[#3773FF] font-black ${errors.lastName ? 'text-red-500' : ''}`}
           />{errors.lastName && <p className='text-red-500'>{errors.lastName.message}</p>}
           </div>
-          
-          
         </div>
         <div 
           className='flex flex-col gap-8'
@@ -120,16 +120,12 @@ const [selected, setSelected] = useState('ОИС-11')
             >
               Группа (выберите вашу группу)
             </p>
-           
-
-            
             <select {...register('group')}
-
+            size={3}
               className='border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black'
-              
             >{errors.group && <p className='text-red-500'>{errors.group.message}</p>}
             {data.map((item,id) => (
-              <option key={id} value={item.group} className=''>{item.group}</option>
+              <option key={id} value={item.group} className='focus:bg-[#3773FF] checked:bg-[#3773FF] checked:text-[#FFFFFF]'>{item.group}</option>
             ))}
             </select>
           </div>
