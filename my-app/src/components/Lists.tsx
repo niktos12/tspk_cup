@@ -4,7 +4,7 @@ export function Lists() {
     return(
         <div 
             className="flex flex-col items-start justify-center mt-[96px] pl-[96px] pres-bg-2 h-[900px] xl:p-4 xl:items-center x:items-start x:bg-left-bottom
-            x:bg-contain"
+            x:bg-contain m:mt-4 m:justify-start m:h-full"
             id='lists'
         >
             <h1 
@@ -38,7 +38,7 @@ export function Lists() {
                                             <img 
                                                 src={process.env.PUBLIC_URL + "/images/Ranking.svg"} 
                                                 alt=""
-                                                className='select-none'
+                                                className='select-none xm:w-14 xm:h-14'
                                             />
                                         </div>
                                         <TiArrowSortedDown
@@ -52,7 +52,7 @@ export function Lists() {
                                     </span>
                                     <Disclosure.Panel className={`duration-300 transition-all disclosure-panel`}>
                                         <p 
-                                            className='flex text-4xl text-[#1F1F25] mt-[24px] text-left '
+                                            className='flex text-4xl text-[#1F1F25] mt-[24px] text-left x:text-3xl xm:text-xl'
                                         >
                                             Первая часть турнира будет проходить онлайн. Финал — в ЦОППе
                                         </p>
@@ -81,7 +81,7 @@ export function Lists() {
                                         <img 
                                             src={process.env.PUBLIC_URL + "/images/Cup.svg"} 
                                             alt=""
-                                            className='select-none' 
+                                            className='select-none xm:w-14 xm:h-14' 
                                         />
                                     </div>
                                     <TiArrowSortedDown
@@ -95,7 +95,7 @@ export function Lists() {
                                 </span>
                                 <Disclosure.Panel>
                                     <p 
-                                        className='flex text-4xl text-[#1F1F25] mt-[24px] text-left'
+                                        className='flex text-4xl text-[#1F1F25] mt-[24px] text-left x:text-3xl xm:text-xl'
                                     >
                                         Призом турнира будет автомат по любой дисциплине Кондурар М.В (на выбор)
                                     </p>
@@ -124,7 +124,7 @@ export function Lists() {
                                         <img 
                                             src={process.env.PUBLIC_URL + "/images/Pen New Round.svg"} 
                                             alt=""
-                                            className='select-none' 
+                                            className='select-none xm:w-14 xm:h-14' 
                                         />
                                     </div>
                                     <TiArrowSortedDown
@@ -138,7 +138,7 @@ export function Lists() {
                                 </span>
                                 <Disclosure.Panel>
                                     <p 
-                                        className='flex text-4xl text-[#1F1F25] mt-[24px] text-left'
+                                        className='flex text-4xl text-[#1F1F25] mt-[24px] text-left x:text-3xl xm:text-xl'
                                     >
                                         Следите за новостями в наших телеграм и дискорд каналах
                                     </p>

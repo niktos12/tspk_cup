@@ -19,9 +19,11 @@ export function Presentation(){
     
     return(
         <div 
-            className="flex flex-col items-center pres-bg items-center justify-center h-[876px] mt-[-58px] 3xl:h-[100%] x:h-[100%] x:mt-0 bg-contain"
+            className="flex flex-col items-center pres-bg items-center justify-center h-[876px] mt-[-58px] 3xl:h-[100%] x:h-[100%] x:mt-0 bg-contain
+             x:bg-cover "
         >   <div 
-                className="flex flex-row gap-16 items-center justify-center my-40 mb-10 3xl:flex-col 3xl:mt-20 3xl:gap-8 3xl:mb-0 x:flex-row x:my-40"
+                className="flex flex-row gap-16 items-center justify-center my-40 mb-10 3xl:flex-col 3xl:mt-20 3xl:gap-8 3xl:mb-0 
+                x:flex-row x:my-40 sm:flex-col sm:mt-20 sm:gap-8 sm:mb-14"
             >
                 <h1 
                     className="text-[#1F1F25] text-9xl uppercase font-bold x:text-6xl"
@@ -51,7 +53,7 @@ export function Presentation(){
                 />
             </a>
             <Marquee 
-                speed={50}
+                speed={70}
                 className="w-[75%] h-[100px] uppercase select-none"
             >
                 <p 

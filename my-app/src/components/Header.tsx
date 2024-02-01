@@ -82,28 +82,28 @@ export function Header() {
                 </div>
             </div>
             {show && 
-            <div className='w-full h-full items-end flex flex-col z-30 absolute bg-[#D4E1FF] top-0'>
-                <div className='w-full h-full items-end flex flex-col z-30 absolute bg-[#D4E1FF] top-0 p-4'>
+            <div className='w-full h-full items-end flex flex-col z-30 absolute bg-[#D4E1FF] top-0 rounded-b-3xl'>
+                <div className='w-full h-full items-end flex flex-col z-30 absolute bg-[#D4E1FF] top-0 p-4 rounded-b-3xl '>
                 <IoCloseCircleOutline
                     onClick={handleShow}
-                    className='cursor-pointer text-[#3773FF] w-[39px] h-[39px] hover:text-[#0D0D0E] duration-300'
+                    className='cursor-pointer text-[#3773FF] w-[45px] h-[45px] hover:text-[#0D0D0E] duration-300'
                 />
                 <a 
-                    className='' 
+                    className='text-2xl font-semibold text-[#0D0D0E]' 
                     href='#lists' 
                     onClick={handleShow}
                 >
                     О турнире
                 </a>
                 <a 
-                    className=''
+                    className='text-2xl font-semibold text-[#0D0D0E]'
                     onClick={handleShowModal} 
                 >
                     Участвовать
                 </a>
-                <div className='flex flex-row'>
-                    <FaTelegramPlane className=''/>
-                    <FaDiscord className=''/>
+                <div className='flex flex-row gap-3'>
+                    <FaTelegramPlane className='bg-white rounded-2xl w-[37px] h-[37px] p-1 hover:text-[#3773FF] duration-300 hover:rounded-full hover:scale-90'/>
+                    <FaDiscord className='bg-white rounded-2xl w-[37px] h-[37px] p-1 hover:text-[#3773FF] duration-300 hover:rounded-full hover:scale-90'/>
                 </div>
                 </div>
             </div>}

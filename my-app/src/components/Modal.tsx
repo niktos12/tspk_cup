@@ -53,8 +53,8 @@ const Modal = () => {
         className='z-30 absolute fixed top-0 right-0 left-0 bottom-0'
       >
       <form
-        className="p-12 rounded top-0 left-1/2 -translate-x-1/2 bg-white-transparent fixed 
-        translate-y-1/3 flex flex-col gap-8 rounded-[64px] backdrop-blur-xl transition-transform duration-300 border-[#0D0D0E] border solid"
+        className="p-12 rounded top-10 left-1/2 -translate-x-1/2 bg-white-transparent fixed 
+       flex flex-col gap-8 rounded-[64px] backdrop-blur-xl transition-transform duration-300 border-[#0D0D0E] border solid xm:gap-4"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div 
@@ -87,7 +87,7 @@ const Modal = () => {
           </div>
         </div>
         <div 
-          className='flex flex-col gap-8'
+          className='flex flex-col gap-8 xm:gap-4'
         >
           <div 
             className='flex flex-col'
@@ -112,17 +112,18 @@ const Modal = () => {
               className='border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black' 
               placeholder='TSPKCup@mail.ru'/>{errors.email && <p className='text-red-500'>{errors.email.message}</p>}
           </div>
-          <div 
-            className='flex flex-col'
+          <div className='xm:flex xm:flex-row xm:items-start xm:justify-between'>
+            <div 
+            className='flex flex-col xm:w-[45%]'
           >
             <p 
               className=''
             >
-              Группа (выберите вашу группу)
+              Группа
             </p>
             <select {...register('group')}
             size={3}
-              className='border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black'
+              className='border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black xm:w-[100%]'
             >{errors.group && <p className='text-red-500'>{errors.group.message}</p>}
             {data.map((item,id) => (
               <option key={id} value={item.group} className='focus:bg-[#3773FF] checked:bg-[#3773FF] checked:text-[#FFFFFF]'>{item.group}</option>
@@ -130,10 +131,10 @@ const Modal = () => {
             </select>
           </div>
           <div 
-            className='flex flex-col'
+            className='flex flex-col '
           >
             <p 
-              className=''
+              className=' xm:mt-9'
             >
               Команда
             </p>
@@ -142,16 +143,18 @@ const Modal = () => {
               className='border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black'
             />{errors.nameTeam && <p className='text-red-500'>{errors.nameTeam.message}</p>}
           </div>
+          </div>
+          
           <div 
             className='flex flex-col'
           >
             <button 
-              className='py-4 px-6 bg-[#3773FF] text-[#FFFFFF] rounded-3xl text-3xl font-black'
+              className='py-4 px-6 bg-[#3773FF] text-[#FFFFFF] rounded-3xl text-3xl font-black xm:py-2 xm:px-3'
             >
               Отправить
             </button>
             <p 
-              className=''
+              className='xm:text-sm'
             >
               Нажимая "Отправить", вы принимаете политику хранения и обработки <a 
                 href='https://piybeep.com/privacy_policy.pdf'
