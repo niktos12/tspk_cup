@@ -57,12 +57,12 @@ export function Presentation(){
                 className="w-[75%] h-[100px] uppercase select-none"
             >
                 <p 
-                    className="text-4xl mr-16 bg-[#1F1F25] text-white rounded-3xl px-4 py-3"
+                    className="text-4xl mr-16 bg-[#1F1F25] text-white rounded-3xl px-4 py-3 x:text-3xl sm:text-2xl"
                 >
                     Тольяттинский социально-педагогический колледж
                 </p>
                 <p 
-                    className="text-4xl mr-16 text-[#1F1F25]"
+                    className="text-4xl mr-16 text-[#1F1F25] x:text-3xl sm:text-2xl"
                 >
                     Центр опережающей профессиональной подготовки
                 </p>

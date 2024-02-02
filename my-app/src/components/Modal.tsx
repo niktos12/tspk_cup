@@ -4,7 +4,7 @@ import { z } from 'zod';
 import {useForm} from 'react-hook-form'
 import {zodResolver} from '@hookform/resolvers/zod'
 import data from '../data/data';
-import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const tg = z.string().refine((val) => val.startsWith('@'), {
   message: "Ваш телеграм должен начинаться с '@'"
@@ -28,10 +28,6 @@ const sName = z.string().min(1, { message: "Введите фамилию" }).re
   type FormData = z.infer<typeof formSchema>
 
 const Modal = () => {
-// const [selected, setSelected] = useState('ОИС-11')
-
-  // const handleSelect = useCallback((value: string) => setSelected(value), []);
-  // const options = data.map((item) => ({ value: item.group, label: item.id }));
 
   const { isOpen, closeModal } = useModal();
 
@@ -42,6 +38,7 @@ const Modal = () => {
   const onSubmit = (data: FormData) => {
     console.log(data)
     closeModal()
+    toast.success('Заявка успешно отправлена', {duration: 2000})    //текст с бэка
     reset()
   }
 
@@ -50,11 +47,12 @@ const Modal = () => {
   return (
     <>
       <div 
-        className='z-30 absolute fixed top-0 right-0 left-0 bottom-0'
+        className='z-30'
       >
       <form
-        className="p-12 rounded top-10 left-1/2 -translate-x-1/2 bg-white-transparent fixed 
-       flex flex-col gap-8 rounded-[64px] backdrop-blur-xl transition-transform duration-300 border-[#0D0D0E] border solid xm:gap-4"
+        className="p-12 rounded top-10 left-1/2 -translate-x-1/2 bg-white-transparent fixed z-40 bg-[#0D0D0E]/12
+       flex flex-col gap-8 rounded-[64px] backdrop-blur-xl transition-transform duration-300 border-[#0D0D0E] border solid xm:gap-4 xm:p-6 xs:scale-90 xs:top-5
+       xss:scale-[80%] megax:scale-[78%]"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div 
@@ -114,7 +112,7 @@ const Modal = () => {
           </div>
           <div className='xm:flex xm:flex-row xm:items-start xm:justify-between'>
             <div 
-            className='flex flex-col xm:w-[45%]'
+            className='flex flex-col xm:w-[40%]'
           >
             <p 
               className=''

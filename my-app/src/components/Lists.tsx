@@ -46,7 +46,7 @@ export function Lists() {
                                         />
                                     </div>
                                     <span 
-                                        className='text-4xl flex font-semibold mt-[24px] x:text-3xl'
+                                        className='text-4xl flex font-semibold mt-[24px] x:text-3xl text-left'
                                     >
                                         Где проходит?
                                     </span>
@@ -89,7 +89,7 @@ export function Lists() {
                                     />
                                 </div>
                                 <span 
-                                    className='text-4xl flex font-semibold mt-[24px]'
+                                    className='text-4xl flex font-semibold mt-[24px] x:text-3xl text-left'
                                 >
                                     Какие будут призы?
                                 </span>
@@ -132,7 +132,7 @@ export function Lists() {
                                     />
                                 </div>
                                 <span 
-                                    className='text-4xl flex font-semibold mt-[24px]'
+                                    className='text-4xl flex font-semibold mt-[24px] x:text-3xl text-left'
                                 >
                                     Новости
                                 </span>

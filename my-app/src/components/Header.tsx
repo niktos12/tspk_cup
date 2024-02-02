@@ -4,6 +4,7 @@ import { FaDiscord } from "react-icons/fa6";
 import { useModal } from '../context/ModalContext';
 import { IoMenuOutline } from "react-icons/io5";
 import { IoCloseCircleOutline } from "react-icons/io5";
+import { Toaster } from 'react-hot-toast';
 
 
 export function Header() {
@@ -47,6 +48,7 @@ export function Header() {
                 justify-between p-12 backdrop-blur-md custom-header-bg x:bg-white x:backdrop-blur-0 x:w-full x:rounded-[0px] x:duration-500"
                 style={{backgroundColor: scrolled === 'scrolled' && smallWidth ? '#D4E1FF ' : 'transparent'}}
             >
+                <Toaster position='top-center'/>
                 <img 
                     src={process.env.PUBLIC_URL + "/images/Logo.svg"} 
                     alt="" 
