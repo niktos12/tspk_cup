@@ -52,7 +52,7 @@ const Modal = () => {
       <form
         className="p-12 rounded top-10 left-1/2 -translate-x-1/2 bg-white-transparent fixed z-40 bg-[#0D0D0E]/12
        flex flex-col gap-8 rounded-[64px] backdrop-blur-xl transition-transform duration-300 border-[#0D0D0E] border solid xm:gap-4 xm:p-6 xs:scale-90 xs:top-5
-       xss:scale-[80%] megax:scale-[78%]"
+       xss:scale-[80%] megax:scale-[78%] fx:scale-[76%]"
         onSubmit={handleSubmit(onSubmit)}
       >
         <div 
@@ -115,12 +115,12 @@ const Modal = () => {
             className='flex flex-col xm:w-[40%]'
           >
             <p 
-              className=''
+              className='mt-5'
             >
               Группа
             </p>
             <select {...register('group')}
-            size={3}
+            size={2}
               className='border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black xm:w-[100%]'
             >{errors.group && <p className='text-red-500'>{errors.group.message}</p>}
             {data.map((item,id) => (
