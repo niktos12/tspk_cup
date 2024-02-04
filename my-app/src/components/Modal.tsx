@@ -9,10 +9,10 @@ import toast from 'react-hot-toast';
 const tg = z.string().refine((val) => val.startsWith('@'), {
   message: "Ваш телеграм должен начинаться с '@'"
 });
-const fName = z.string().min(1, { message: "Введите имя" }).refine((value) => /^[a-zA-Z]+[-'s]?[a-zA-Z ]+$/.test(value), {
+const fName = z.string().min(1, { message: "Введите имя" }).refine((value) => /^[\p{L}а-яА-Я]+[-'s]?[\p{L}а-яА-Я ]+$/u.test(value), {
   message: 'Имя должно содержать только буквы'
 })
-const sName = z.string().min(1, { message: "Введите фамилию" }).refine((value) => /^[a-zA-Z]+[-'s]?[a-zA-Z ]+$/.test(value), {
+const sName = z.string().min(1, { message: "Введите фамилию" }).refine((value) => /^[\p{L}а-яА-Я]+[-'s]?[\p{L}а-яА-Я ]+$/u.test(value), {
   message: 'Фамилия должна содержать только буквы'
 })
 
