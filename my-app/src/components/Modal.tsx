@@ -4,14 +4,22 @@ import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import data from "../data/data";
-import toast from "react-hot-toast";
 import { useCreateAccount } from "../lib/hooks";
 import { Response } from "../lib/types";
 import { AxiosError, AxiosResponse } from "axios";
+import toast from "react-hot-toast";
+import classNames from "classnames";
+import { FaSpinner } from "react-icons/fa";
 
-const tg = z.string().refine((val) => val.startsWith("@"), {
-  message: "Ваш телеграм должен начинаться с '@'",
-});
+const tg = z
+  .string()
+  .min(1, { message: "Введите телеграм" })
+  .refine((val) => val.startsWith("@"), {
+    message: "Ваш телеграм должен начинаться с '@'",
+  })
+  .refine((value) => /^@(?=.*[a-zA-Z])[a-zA-Z0-9]*$/u.test(value), {
+    message: "Телеграм должен содержать только английские буквы или цифры",
+  });
 const fName = z
   .string()
   .min(1, { message: "Введите имя" })
@@ -49,10 +57,11 @@ const Modal = () => {
   });
   const { isOpen, closeModal } = useModal();
   const mutation = useCreateAccount(onSuccess, onError);
-  
 
   function onSuccess(response: AxiosResponse<Response, any>) {
     toast.success(response.data.message, { duration: 2000 });
+    closeModal();
+    reset();
   }
 
   function onError(error: AxiosError<Response, any>) {
@@ -60,10 +69,7 @@ const Modal = () => {
   }
 
   const onSubmit = (data: ModalFormData) => {
-    console.log(data);
     mutation.mutate(data);
-    closeModal();
-    reset();
   };
 
   if (!isOpen) return null;
@@ -142,7 +148,9 @@ const Modal = () => {
                   className="border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black xm:w-[100%]"
                 >
                   {errors.collegeGroup && (
-                    <p className="text-red-500">{errors.collegeGroup.message}</p>
+                    <p className="text-red-500">
+                      {errors.collegeGroup.message}
+                    </p>
                   )}
                   {data.map((item, id) => (
                     <option
@@ -169,8 +177,19 @@ const Modal = () => {
             </div>
 
             <div className="flex flex-col">
-              <button className="py-4 px-6 bg-[#3773FF] text-[#FFFFFF] rounded-3xl text-3xl font-black xm:py-2 xm:px-3">
-                Отправить
+              <button
+                className={classNames(
+                  "py-4 px-6 bg-[#3773FF] text-[#FFFFFF] rounded-3xl text-3xl font-black xm:py-2 xm:px-3",
+                  { "text-slate-400": mutation.isPending }
+                )}
+              >
+                {mutation.isPending ? (
+                  <span className="flex flex-row justify-center text-center">
+                    Загрузка <FaSpinner className="ml-4" />
+                  </span>
+                ) : (
+                  <span>Отправить</span>
+                )}
               </button>
               <p className="xm:text-sm">
                 Нажимая "Отправить", вы принимаете политику хранения и обработки{" "}
