@@ -1,7 +1,4 @@
-import { createContext, useState , useContext , ReactNode } from "react";
-import Modal from "../components/Modal";
-import toast from "react-hot-toast";
-import { error } from "console";
+import { createContext, useState , useContext } from "react";
 
 interface ModalContextProps {
     isOpen: boolean;
