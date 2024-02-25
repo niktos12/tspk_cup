@@ -80,7 +80,7 @@ const Modal = () => {
         <form
           className="p-12 top-10 left-1/2 -translate-x-1/2 bg-white-transparent fixed z-40 bg-[#0D0D0E]/12
        flex flex-col gap-8 rounded-[64px] backdrop-blur-xl transition-transform duration-300 border-[#0D0D0E] border solid xm:gap-4 xm:p-6 xs:scale-90 xs:top-5
-       xss:scale-[80%] megax:scale-[78%] fx:scale-[76%]"
+       xss:scale-[80%] megax:scale-[76%] fx:scale-[74%]"
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="flex flex-row items-center justify-between">
