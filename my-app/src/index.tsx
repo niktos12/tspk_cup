@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+window.env = window.env || {
+    REACT_APP_BACKEND_URL: process.env.REACT_APP_BACKEND_URL,
+}
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
