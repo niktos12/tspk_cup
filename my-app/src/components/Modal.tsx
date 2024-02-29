@@ -77,10 +77,11 @@ const Modal = () => {
   return (
     <>
       <div className="z-30">
+        <div className="fixed top-0 left-0 w-full h-full bg-[#0D0D0E] opacity-60" onClick={closeModal}></div>
         <form
           className="p-12 top-10 left-1/2 -translate-x-1/2 bg-white-transparent fixed z-40 bg-[#0D0D0E]/12
        flex flex-col gap-8 rounded-[64px] backdrop-blur-xl transition-transform duration-300 border-[#0D0D0E] border solid xm:gap-4 xm:p-6 xs:scale-90 xs:top-5
-       xss:scale-[80%] megax:scale-[76%] fx:scale-[74%]"
+       xss:scale-[80%] megax:scale-[74%] fx:scale-[73%]"
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="flex flex-row items-center justify-between">
@@ -97,7 +98,7 @@ const Modal = () => {
               <input
                 {...register("firstName")}
                 placeholder="Имя"
-                className="border-b-2 border-black p-6 pb-1 pl-1 bg-transparent text-[#3773FF] font-black flex flex-col"
+                className="border-b-2 border-black p-6 pb-1 pl-1 bg-transparent text-[#FFFFFF] font-black flex flex-col placeholder:text-[#FFFFFF]"
               />
               {errors.firstName && (
                 <p className="text-red-500 ">{errors.firstName.message}</p>
@@ -107,7 +108,7 @@ const Modal = () => {
               <input
                 {...register("lastName")}
                 placeholder="Фамилия"
-                className={`border-b-2 border-black p-6 pb-1 pl-1 bg-transparent text-[#3773FF] font-black ${
+                className={`border-b-2 border-black p-6 pb-1 pl-1 bg-transparent text-[#FFFFFF] font-black placeholder:text-[#FFFFFF] ${
                   errors.lastName ? "text-red-500" : ""
                 }`}
               />
@@ -122,7 +123,7 @@ const Modal = () => {
               <input
                 {...register("telegram")}
                 placeholder="@TSPKCup"
-                className="border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black"
+                className="border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#FFFFFF] font-black placeholder:text-[#FFFFFF]"
               />
               {errors.telegram && (
                 <p className="text-red-500">{errors.telegram.message}</p>
@@ -132,7 +133,7 @@ const Modal = () => {
               <p className="">Ваша почта</p>
               <input
                 {...register("email")}
-                className="border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black"
+                className="border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#FFFFFF] font-black placeholder:text-[#FFFFFF]"
                 placeholder="TSPKCup@mail.ru"
               />
               {errors.email && (
@@ -141,11 +142,11 @@ const Modal = () => {
             </div>
             <div className="xm:flex xm:flex-row xm:items-start xm:justify-between">
               <div className="flex flex-col xm:w-[40%]">
-                <p className="mt-5">Группа</p>
+                <p className="xm:mt-[2px]">Группа</p>
                 <select
                   {...register("collegeGroup")}
-                  size={2}
-                  className="border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black xm:w-[100%]"
+                  size={1}
+                  className="border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#FFFFFF] font-black xm:w-[100%]"
                 >
                   {errors.collegeGroup && (
                     <p className="text-red-500">
@@ -156,7 +157,7 @@ const Modal = () => {
                     <option
                       key={id}
                       value={item.group}
-                      className="focus:bg-[#3773FF] checked:bg-[#3773FF] checked:text-[#FFFFFF]"
+                      className="focus:bg-[#3773FF] checked:bg-[#3773FF] checked:text-[#3773FF] text-[#3773FF] font-black"
                     >
                       {item.group}
                     </option>
@@ -164,11 +165,11 @@ const Modal = () => {
                 </select>
               </div>
               <div className="flex flex-col ">
-                <p className=" xm:mt-9">Команда</p>
+                <p className="mt-5 xm:mt-0">Команда</p>
                 <input
                   {...register("nameTeam")}
                   placeholder="NE DOGONYAT"
-                  className="border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black"
+                  className="border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#FFFFFF] font-black placeholder:text-[#FFFFFF]"
                 />
                 {errors.nameTeam && (
                   <p className="text-red-500">{errors.nameTeam.message}</p>
@@ -191,7 +192,7 @@ const Modal = () => {
                   <span>Отправить</span>
                 )}
               </button>
-              <p className="xm:text-sm">
+              <p className="xm:text-sm text-[#FFFFFF]">
                 Нажимая "Отправить", вы принимаете политику хранения и обработки{" "}
                 <a
                   href="https://piybeep.com/privacy_policy.pdf"

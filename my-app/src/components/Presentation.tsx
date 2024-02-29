@@ -63,6 +63,7 @@ export function Presentation(){
                 </p>
                 <p 
                     className="text-4xl mr-16 text-[#1F1F25] x:text-3xl sm:text-2xl"
+                    id='lists'
                 >
                     Центр опережающей профессиональной подготовки
                 </p>

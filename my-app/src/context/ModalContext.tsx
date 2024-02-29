@@ -22,6 +22,7 @@ const ModalProvider: React.FC<ModalProvideProps> = ({ children }) => {
     const closeModal = () => {
         setIsOpen(false);
         document.body.classList.remove('no-scroll');
+
     }
 
     return(

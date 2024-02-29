@@ -5,10 +5,10 @@ export function Lists() {
         <div 
             className="flex flex-col items-start justify-center mt-[96px] pl-[96px] pres-bg-2 h-[900px] xl:p-4 xl:items-center x:items-start x:bg-left-bottom
             x:bg-contain m:mt-4 m:justify-start m:h-full"
-            id='lists'
         >
             <h1 
                 className="text-8xl font-bold x:text-5xl"
+                
             >
                 Немного о турнире
             </h1>
@@ -19,7 +19,7 @@ export function Lists() {
                     <div 
                         className="gap-[24px] flex flex-col "
                     >
-                        <Disclosure 
+                        <Disclosure
                             defaultOpen={true}
                             as='div'
                             className='duration-300 transition-all '
@@ -97,7 +97,7 @@ export function Lists() {
                                     <p 
                                         className='flex text-4xl text-[#1F1F25] mt-[24px] text-left x:text-3xl xm:text-xl'
                                     >
-                                        Призом турнира будет автомат по любой дисциплине Кондурар М.В (на выбор)
+                                        Призом турнира будет сертификат с особой внутриколледжной привилегией
                                     </p>
                                 </Disclosure.Panel>
                             </Disclosure.Button>

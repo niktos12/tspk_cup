@@ -7,7 +7,7 @@ import { IoCloseCircleOutline } from "react-icons/io5";
 
 export function Header() {
   const [show, setShow] = useState(false);
-  const { openModal } = useModal();
+  const { openModal, isOpen } = useModal();
   const [scrolled, setScrolled] = useState<"scrolled" | "notScrolled">(
     "notScrolled"
   );
@@ -27,11 +27,6 @@ export function Header() {
     handleScroll();
     handleSmallWidth();
   });
-  const handleShowModal = () => {
-    handleShow();
-    openModal();
-  };
-
   const handleShow = () => {
     setShow(!show);
   };
@@ -95,7 +90,7 @@ export function Header() {
             </a>
             <a
               className="text-2xl font-semibold text-[#0D0D0E]"
-              onClick={handleShowModal}
+              onClick={openModal}
             >
               Участвовать
             </a>
