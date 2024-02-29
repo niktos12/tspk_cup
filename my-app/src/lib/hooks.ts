@@ -8,11 +8,13 @@ export const defaultRequestConfig = {
 };
 
 export function useCreateAccount(onSuccess: (response: AxiosResponse<Response, any>) => any, onError: (error: AxiosError<Response, any>) => any) {
+  const backendUrl = window.env.REACT_APP_BACKEND_URL;
+
   return useMutation({
     mutationKey: ["create-account"],
     mutationFn: (data: ModalFormData) => {
       return axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/api/v1/register`,
+        `${backendUrl}/api/v1/register`,
         data,
         defaultRequestConfig
       );

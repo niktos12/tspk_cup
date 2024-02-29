@@ -1,0 +1,48 @@
+services:
+  tspcup-backend:
+    image: eann1s/tspcup_backend:latest
+    hostname: tspcup-backend
+    restart: unless-stopped
+    pull_policy: missing
+    ports:
+      - 8080:8080
+    environment:
+      SERVER_PORT: 8080
+      DATABASE_URL: postgres:5432
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      MAIL_USERNAME: ${MAIL_USERNAME}
+      MAIL_PASSWORD: ${MAIL_PASSWORD}
+      MAIL_MESSAGE: ${MAIL_MESSAGE}
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:alpine3.17
+    hostname: postgres
+    restart: unless-stopped
+    pull_policy: missing
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: tspcup
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      PGDATA: /data/postgres
+    volumes:
+      - tspcup-data:/data/postgres
+
+  tspk-cup:
+    image: eann1s/tspk-cup:latest
+    hostname: tspk-cup
+    restart: unless-stopped
+    pull_policy: missing
+    ports:
+      - 80:80
+    environment:
+      REACT_APP_BACKEND_URL: http://localhost:8080
+    depends_on:
+      - tspcup-backend
+
+volumes:
+  tspcup-data: { }
