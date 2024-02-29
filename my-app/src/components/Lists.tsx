@@ -54,7 +54,7 @@ export function Lists() {
                                         <p 
                                             className='flex text-4xl text-[#1F1F25] mt-[24px] text-left x:text-3xl xm:text-xl'
                                         >
-                                            Первая часть турнира будет проходить онлайн. Финал — в ЦОППе
+                                            Первая часть турнира будет проходить онлайн. Финал — в ЦОППе(ул. Победы 7)
                                         </p>
                                     </Disclosure.Panel>
                                 </Disclosure.Button>

@@ -26,7 +26,7 @@ export function Header() {
 
     handleScroll();
     handleSmallWidth();
-  });
+  } , []);
   const handleShow = () => {
     setShow(!show);
   };
@@ -34,7 +34,7 @@ export function Header() {
   return (
     <header className="w-full pt-12 flex items-center justify-center flex-row z-20 top-0 sticky x:pt-0 x:flex-col">
       <div
-        className="w-[85%] rounded-[64px] gap-12 flex flex-row items-center 
+        className="w-[89%] rounded-[64px] gap-12 flex flex-row items-center 
                 justify-between p-12 backdrop-blur-md custom-header-bg x:bg-white x:backdrop-blur-0 x:w-full x:rounded-[0px] x:duration-500"
         style={{
           backgroundColor:
@@ -74,7 +74,7 @@ export function Header() {
           />
         </div>
       </div>
-      {show && (
+      {show && smallWidth && ( 
         <div className="w-full h-full items-end flex flex-col z-30 absolute bg-[#D4E1FF] top-0 rounded-b-3xl">
           <div className="w-full h-full items-end flex flex-col z-30 absolute bg-[#D4E1FF] top-0 p-4 rounded-b-3xl ">
             <IoCloseCircleOutline
