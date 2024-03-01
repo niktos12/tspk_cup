@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import data from "../data/data";
 import { useCreateAccount } from "../lib/hooks";
-import { Response } from "../lib/types";
+import {ErrorResponse, ErrorTypesEnum, SuccessResponse} from "../lib/types";
 import { AxiosError, AxiosResponse } from "axios";
 import toast from "react-hot-toast";
 import classNames from "classnames";
@@ -17,32 +17,42 @@ const tg = z
   .refine((val) => val.startsWith("@"), {
     message: "Ваш телеграм должен начинаться с '@'",
   })
-  .refine((value) => /^@(?=.*[a-zA-Z])[a-zA-Z0-9]*$/u.test(value), {
+  .refine((value) => /^@[A-Za-z0-9]+$/u.test(value), {
     message: "Телеграм должен содержать только английские буквы или цифры",
   });
 const fName = z
   .string()
   .min(1, { message: "Введите имя" })
-  .refine((value) => /^[\p{L}а-яА-Я]+[-'s]?[\p{L}а-яА-Я ]+$/u.test(value), {
-    message: "Имя должно содержать только буквы",
+  .refine((value) => /^[А-Яа-яёЁ]+(-[А-Яа-яёЁ]+)?$/u.test(value), {
+    message: "Имя должно содержать только буквы кириллицы",
   });
-const sName = z
+const lName = z
   .string()
   .min(1, { message: "Введите фамилию" })
-  .refine((value) => /^[\p{L}а-яА-Я]+[-'s]?[\p{L}а-яА-Я ]+$/u.test(value), {
-    message: "Фамилия должна содержать только буквы",
+  .refine((value) => /^[А-Яа-яёЁ]+(-[А-Яа-яёЁ]+)?$/u.test(value), {
+    message: "Фамилия должна содержать только буквы кириллицы",
   });
+const nameTeam = z
+    .string()
+    .min(1, {message: "Введите название команды"})
+    .refine((value) => /^[A-Za-z0-9]+$/u.test(value), {
+      message: "Название команды должно содержать только латинские буквы и цифры",
+    })
+const email = z
+    .string()
+    .min(1, { message: "Введите почту" })
+    .email({ message: "Неверная почта" });
+const collegeGroup = z
+    .string()
+    .min(1, { message: "Выберите группу" });
 
 const formSchema = z.object({
   firstName: fName,
-  lastName: sName,
+  lastName: lName,
   telegram: tg,
-  email: z
-    .string()
-    .min(1, { message: "Введите почту" })
-    .email({ message: "Неверная почта" }),
-  collegeGroup: z.string().min(1, { message: "Выберите группу" }),
-  nameTeam: z.string().min(1, { message: "Введите название команды" }),
+  email: email,
+  collegeGroup: collegeGroup,
+  nameTeam: nameTeam,
 });
 export type ModalFormData = z.infer<typeof formSchema>;
 
@@ -58,14 +68,19 @@ const Modal = () => {
   const { isOpen, closeModal } = useModal();
   const mutation = useCreateAccount(onSuccess, onError);
 
-  function onSuccess(response: AxiosResponse<Response, any>) {
+  function onSuccess(response: AxiosResponse<SuccessResponse, any>) {
     toast.success(response.data.message, { duration: 2000 });
     closeModal();
     reset();
   }
 
-  function onError(error: AxiosError<Response, any>) {
-    toast.error(error.response?.data.message || "", { duration: 2000 });
+  function onError(error: AxiosError<ErrorResponse, any>) {
+    let errorResponse = error.response?.data;
+    if (errorResponse) {
+      for (let errorType of Object.values(ErrorTypesEnum)) {
+        errorResponse[errorType] && toast.error(errorResponse[errorType] || "", { duration: 2000 });
+      }
+    }
   }
 
   const onSubmit = (data: ModalFormData) => {
@@ -108,9 +123,7 @@ const Modal = () => {
               <input
                 {...register("lastName")}
                 placeholder="Фамилия"
-                className={`border-b-2 border-black p-6 pb-1 pl-1 bg-transparent text-[#FFFFFF] font-black placeholder:text-[#FFFFFF] ${
-                  errors.lastName ? "text-red-500" : ""
-                }`}
+                className={`border-b-2 border-black p-6 pb-1 pl-1 bg-transparent text-[#FFFFFF] font-black placeholder:text-[#FFFFFF]`}
               />
               {errors.lastName && (
                 <p className="text-red-500">{errors.lastName.message}</p>

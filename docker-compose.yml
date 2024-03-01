@@ -41,6 +41,7 @@ services:
       - 80:80
     environment:
       REACT_APP_BACKEND_URL: http://localhost:8080
+      NODE_ENV: production
     depends_on:
       - tspcup-backend
 
