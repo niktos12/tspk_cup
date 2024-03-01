@@ -23,15 +23,15 @@ export function Presentation(){
              x:bg-cover "
         >   <div 
                 className="flex flex-row gap-16 items-center justify-center my-40 mb-10 3xl:flex-col 3xl:mt-20 3xl:gap-8 3xl:mb-0 
-                x:flex-row x:my-40 sm:flex-col sm:mt-20 sm:gap-8 sm:mb-14"
+                x:flex-row x:my-40 sm:flex-col sm:mt-20 sm:gap-8 sm:mb-14 "
             >
                 <h1 
-                    className="text-[#1F1F25] text-9xl uppercase font-bold x:text-6xl"
+                    className="text-[#1F1F25] text-9xl uppercase font-bold x:text-6xl select-none"
                 >
                     Турнир
                 </h1>
                 <h1 
-                    className="text-[#1F1F25] text-9xl uppercase font-bold x:text-6xl"
+                    className="text-[#1F1F25] text-9xl uppercase font-bold x:text-6xl select-none"
                 >
                     По
                 </h1>
@@ -39,7 +39,7 @@ export function Presentation(){
                 <img 
                     src={process.env.PUBLIC_URL + "/images/LogoCS2.svg"} 
                     alt=""
-                    className="animate__animated animate__headShake animate__infinite animate__duration-3s delay-1000 animate__slow x:w-[300px] "
+                    className="animate__animated animate__headShake animate__infinite animate__duration-3s delay-1000 animate__slow x:w-[300px] select-none"
                 />
             </div>
             <a 

@@ -45,7 +45,8 @@ export function Header() {
         <img
           src={process.env.PUBLIC_URL + "/images/Logo.svg"}
           alt=""
-          className="bg-[#D4E1FF] p-3 rounded-[16px] cursor-pointer"
+          className="bg-[#D4E1FF] p-3 rounded-[16px] cursor-pointer select-none"
+          onClick={() => window.scrollTo(0, 0)}
         />
         <div className="flex gap-6 flex-row items-center">
           <a
@@ -54,14 +55,18 @@ export function Header() {
           >
             О турнире
           </a>
-          <FaTelegramPlane
-            className="text-[#0D0D0E] p-3 w-[67px] h-[67px] rounded-2xl 
+          <a href="https://t.me/tspkcup" target="_blank">
+            <FaTelegramPlane
+              className="text-[#0D0D0E] p-3 w-[67px] h-[67px] rounded-2xl 
                         bg-[#D4E1FF] cursor-pointer duration-300 hover:text-[#3773FF] hover:rounded-full hover:scale-90 x:hidden"
-          />
-          <FaDiscord
-            className="text-[#0D0D0E] p-3 w-[67px] h-[67px] rounded-2xl 
+            />
+          </a>
+          <a href="https://discord.gg/B4tpJBSzfH" target="_blank">
+            <FaDiscord
+              className="text-[#0D0D0E] p-3 w-[67px] h-[67px] rounded-2xl 
                         bg-[#D4E1FF] cursor-pointer duration-300 hover:text-[#3773FF] hover:rounded-full hover:scale-90 x:hidden"
-          />
+            />
+          </a>
           <button
             onClick={openModal}
             className="ml-6 px-6 py-3 text-2xl font-semibold bg-[#3773FF] text-white rounded-2xl duration-300 hover:rounded-3xl h-[67px] x:hidden"

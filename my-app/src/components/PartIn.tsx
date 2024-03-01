@@ -36,13 +36,13 @@ export function PartIn(){
                 <div 
                     className="flex flex-row gap-3 x:items-center x:justify-center "
                 >
-                    <a href="https://t.me/tspkcup">
+                    <a href="https://t.me/tspkcup" target="_blank">
                         <FaTelegramPlane 
                             className="bg-[#D4E1FF] p-4 w-[100px] h-[100px] rounded-3xl cursor-pointer duration-300 hover:text-[#3773FF] hover:rounded-full hover:scale-90 
                                 x:max-w-[424px] x:h-[100px] x:p-3 md:w-[75px] md:h-[75px]"
                         />
                     </a>
-                    <a href="https://discord.gg/B4tpJBSzfH">
+                    <a href="https://discord.gg/B4tpJBSzfH" target="_blank">
                         <FaDiscord 
                             className="bg-[#D4E1FF] p-4 w-[100px] h-[100px] rounded-3xl cursor-pointer duration-300 hover:text-[#3773FF] hover:rounded-full hover:scale-90 
                             x:max-w-[424px] x:h-[100px] x:p-3 x:w-full md:p-2 md:w-[75px] md:h-[75px]"
