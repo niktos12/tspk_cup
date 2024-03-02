@@ -4,17 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-window.env = window.env || {
-    REACT_APP_BACKEND_URL: process.env.REACT_APP_BACKEND_URL,
-}
+window.env = process.env.NODE_ENV === 'development' ? {
+    REACT_APP_BACKEND_URL: process.env.REACT_APP_BACKEND_URL
+} : window.env;
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+        <App/>
+    </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
