@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import data from "../data/data";
 import { useCreateAccount } from "../lib/hooks";
-import {ErrorResponse, ErrorTypesEnum, SuccessResponse} from "../lib/types";
+import { ErrorResponse, ErrorTypesEnum, SuccessResponse } from "../lib/types";
 import { AxiosError, AxiosResponse } from "axios";
 import toast from "react-hot-toast";
 import classNames from "classnames";
@@ -33,18 +33,16 @@ const lName = z
     message: "Фамилия должна содержать только буквы кириллицы",
   });
 const nameTeam = z
-    .string()
-    .min(1, {message: "Введите название команды"})
-    .refine((value) => /^[A-Za-z0-9]+$/u.test(value), {
-      message: "Название команды должно содержать только латинские буквы и цифры",
-    })
+  .string()
+  .min(1, { message: "Введите название команды" })
+  .refine((value) => /^[A-Za-z0-9]+$/u.test(value), {
+    message: "Название команды должно содержать только латинские буквы и цифры",
+  });
 const email = z
-    .string()
-    .min(1, { message: "Введите почту" })
-    .email({ message: "Неверная почта" });
-const collegeGroup = z
-    .string()
-    .min(1, { message: "Выберите группу" });
+  .string()
+  .min(1, { message: "Введите почту" })
+  .email({ message: "Неверная почта" });
+const collegeGroup = z.string().min(1, { message: "Выберите группу" });
 
 const formSchema = z.object({
   firstName: fName,
@@ -78,7 +76,8 @@ const Modal = () => {
     let errorResponse = error.response?.data;
     if (errorResponse) {
       for (let errorType of Object.values(ErrorTypesEnum)) {
-        errorResponse[errorType] && toast.error(errorResponse[errorType] || "", { duration: 2000 });
+        errorResponse[errorType] &&
+          toast.error(errorResponse[errorType] || "", { duration: 2000 });
       }
     }
   }
@@ -92,11 +91,14 @@ const Modal = () => {
   return (
     <>
       <div className="z-30">
-        <div className="fixed top-0 left-0 w-full h-full bg-[#0D0D0E] opacity-60" onClick={closeModal}></div>
+        <div
+          className="fixed top-0 left-0 w-full h-full bg-[#FFFFFF] opacity-60 backdrop-blur-2xl"
+          onClick={closeModal}
+        ></div>
         <form
-          className="p-12 top-10 left-1/2 -translate-x-1/2 bg-white-transparent fixed z-40 bg-[#0D0D0E]/12
-       flex flex-col gap-8 rounded-[64px] backdrop-blur-xl transition-transform duration-300 border-[#0D0D0E] border solid xm:gap-4 xm:p-6 xs:scale-90 xs:top-5
-       xss:scale-[80%] megax:scale-[74%] fx:scale-[73%]"
+          className="p-12 top-4 left-1/2 -translate-x-1/2 bg-white-transparent fixed z-40 bg-[#0D0D0E]/12
+       flex flex-col gap-8 rounded-[64px] backdrop-blur-2xl transition-transform duration-300 border-[#0D0D0E] border solid xm:gap-4 xm:p-6 xs:scale-90 xs:top-5
+       xss:scale-[80%] megax:scale-[74%] fx:scale-[73%] xm:rounded-[24px]"
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="flex flex-row items-center justify-between">
@@ -113,7 +115,7 @@ const Modal = () => {
               <input
                 {...register("firstName")}
                 placeholder="Имя"
-                className="border-b-2 border-black p-6 pb-1 pl-1 bg-transparent text-[#FFFFFF] font-black flex flex-col placeholder:text-[#FFFFFF]"
+                className="border-b-2 border-black p-6 pb-1 pl-1 bg-transparent text-[#3773FF] font-black flex flex-col placeholder:text-[#3773FF]"
               />
               {errors.firstName && (
                 <p className="text-red-500 ">{errors.firstName.message}</p>
@@ -123,7 +125,7 @@ const Modal = () => {
               <input
                 {...register("lastName")}
                 placeholder="Фамилия"
-                className={`border-b-2 border-black p-6 pb-1 pl-1 bg-transparent text-[#FFFFFF] font-black placeholder:text-[#FFFFFF]`}
+                className={`border-b-2 border-black p-6 pb-1 pl-1 bg-transparent text-[#3773FF] font-black placeholder:text-[#3773FF]`}
               />
               {errors.lastName && (
                 <p className="text-red-500">{errors.lastName.message}</p>
@@ -136,7 +138,7 @@ const Modal = () => {
               <input
                 {...register("telegram")}
                 placeholder="@TSPKCup"
-                className="border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#FFFFFF] font-black placeholder:text-[#FFFFFF]"
+                className="border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black placeholder:text-[#3773FF]"
               />
               {errors.telegram && (
                 <p className="text-red-500">{errors.telegram.message}</p>
@@ -146,7 +148,7 @@ const Modal = () => {
               <p className="">Ваша почта</p>
               <input
                 {...register("email")}
-                className="border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#FFFFFF] font-black placeholder:text-[#FFFFFF]"
+                className="border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black placeholder:text-[#3773FF]"
                 placeholder="TSPKCup@mail.ru"
               />
               {errors.email && (
@@ -159,7 +161,7 @@ const Modal = () => {
                 <select
                   {...register("collegeGroup")}
                   size={1}
-                  className="border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#FFFFFF] font-black xm:w-[100%]"
+                  className="border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black xm:w-[100%]"
                 >
                   {errors.collegeGroup && (
                     <p className="text-red-500">
@@ -182,7 +184,7 @@ const Modal = () => {
                 <input
                   {...register("nameTeam")}
                   placeholder="NE DOGONYAT"
-                  className="border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#FFFFFF] font-black placeholder:text-[#FFFFFF]"
+                  className="border-b-2 border-black p-6 py-1 pl-1 bg-transparent text-[#3773FF] font-black placeholder:text-[#3773FF]"
                 />
                 {errors.nameTeam && (
                   <p className="text-red-500">{errors.nameTeam.message}</p>
@@ -193,7 +195,7 @@ const Modal = () => {
             <div className="flex flex-col">
               <button
                 className={classNames(
-                  "py-4 px-6 bg-[#3773FF] text-[#FFFFFF] rounded-3xl text-3xl font-black xm:py-2 xm:px-3",
+                  "py-4 px-6 bg-[#3773FF] text-[#FFFFFF] rounded-3xl text-3xl font-black xm:py-2 xm:px-3 xm:rounded-[12px]",
                   { "text-slate-400": mutation.isPending }
                 )}
               >
@@ -205,7 +207,7 @@ const Modal = () => {
                   <span>Отправить</span>
                 )}
               </button>
-              <p className="xm:text-sm text-[#FFFFFF]">
+              <p className="xm:text-sm text-[#3773FF]">
                 Нажимая "Отправить", вы принимаете политику хранения и обработки{" "}
                 <a
                   href="https://piybeep.com/privacy_policy.pdf"

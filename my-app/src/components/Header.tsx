@@ -26,8 +26,12 @@ export function Header() {
 
     handleScroll();
     handleSmallWidth();
-  } , []);
+  }, []);
   const handleShow = () => {
+    setShow(!show);
+  };
+  const handleOpenModal = () => {
+    openModal();
     setShow(!show);
   };
 
@@ -41,7 +45,6 @@ export function Header() {
             scrolled === "scrolled" && smallWidth ? "#D4E1FF " : "transparent",
         }}
       >
-        
         <img
           src={process.env.PUBLIC_URL + "/images/Logo.svg"}
           alt=""
@@ -55,17 +58,21 @@ export function Header() {
           >
             О турнире
           </a>
-          <a href="https://t.me/tspkcup" target="_blank">
-            <FaTelegramPlane
-              className="text-[#0D0D0E] p-3 w-[67px] h-[67px] rounded-2xl 
-                        bg-[#D4E1FF] cursor-pointer duration-300 hover:text-[#3773FF] hover:rounded-full hover:scale-90 x:hidden"
-            />
+          <a
+            href="https://t.me/tspkcup"
+            target="_blank"
+            className="flex items-center text-[#0D0D0E] p-3 w-[67px] h-[67px] rounded-2xl 
+                        bg-[#D4E1FF] hover:p-[15px] cursor-pointer duration-300 hover:text-[#3773FF] hover:rounded-full hover:scale-90 x:hidden"
+          >
+            <FaTelegramPlane className="w-full h-full" />
           </a>
-          <a href="https://discord.gg/B4tpJBSzfH" target="_blank">
-            <FaDiscord
-              className="text-[#0D0D0E] p-3 w-[67px] h-[67px] rounded-2xl 
-                        bg-[#D4E1FF] cursor-pointer duration-300 hover:text-[#3773FF] hover:rounded-full hover:scale-90 x:hidden"
-            />
+          <a
+            href="https://discord.gg/B4tpJBSzfH"
+            target="_blank"
+            className="flex items-center text-[#0D0D0E] p-3 w-[67px] h-[67px] rounded-2xl 
+                        bg-[#D4E1FF] hover:p-[15px] cursor-pointer duration-300 hover:text-[#3773FF] hover:rounded-full hover:scale-90 x:hidden"
+          >
+            <FaDiscord className="w-full h-full" />
           </a>
           <button
             onClick={openModal}
@@ -79,7 +86,7 @@ export function Header() {
           />
         </div>
       </div>
-      {show && smallWidth && ( 
+      {show && smallWidth && (
         <div className="w-full h-full items-end flex flex-col z-30 absolute bg-[#D4E1FF] top-0 rounded-b-3xl">
           <div className="w-full h-full items-end flex flex-col z-30 absolute bg-[#D4E1FF] top-0 p-4 rounded-b-3xl ">
             <IoCloseCircleOutline
@@ -87,21 +94,33 @@ export function Header() {
               className="cursor-pointer text-[#3773FF] w-[45px] h-[45px] hover:text-[#0D0D0E] duration-300"
             />
             <a
-              className="text-2xl font-semibold text-[#0D0D0E]"
+              className="text-2xl font-semibold text-[#0D0D0E] cursor-pointer hover:text-[#3773FF] duration-300"
               href="#lists"
               onClick={handleShow}
             >
               О турнире
             </a>
             <a
-              className="text-2xl font-semibold text-[#0D0D0E]"
-              onClick={openModal}
+              className="text-2xl font-semibold text-[#0D0D0E] cursor-pointer hover:text-[#3773FF] duration-300"
+              onClick={handleOpenModal}
             >
               Участвовать
             </a>
             <div className="flex flex-row gap-3">
-              <FaTelegramPlane className="bg-white rounded-2xl w-[37px] h-[37px] p-1 hover:text-[#3773FF] duration-300 hover:rounded-full hover:scale-90" />
-              <FaDiscord className="bg-white rounded-2xl w-[37px] h-[37px] p-1 hover:text-[#3773FF] duration-300 hover:rounded-full hover:scale-90" />
+              <a
+                href="https://t.me/tspkcup"
+                target="_blank"
+                className="flex items-center bg-white rounded-2xl w-[37px] h-[37px] p-1 hover:text-[#3773FF] duration-300 hover:rounded-full hover:scale-90"
+              >
+                <FaTelegramPlane className="w-full h-full" />
+              </a>
+              <a
+                href="https://discord.gg/B4tpJBSzfH"
+                target="_blank"
+                className="flex items-center bg-white rounded-2xl w-[37px] h-[37px] p-1 hover:text-[#3773FF] duration-300 hover:rounded-full hover:scale-90"
+              >
+                <FaDiscord className="w-full h-full" />
+              </a>
             </div>
           </div>
         </div>

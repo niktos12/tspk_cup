@@ -4,9 +4,10 @@
 
 
 .pres-bg-2{
-  background-image: url(../public/images/cs2listsbg.png);
+  background-image: url(../public/images/Counter-Strike_2_-_Background_pixian_ai-_1_-1.webp);
   background-repeat: no-repeat;
   background-position: bottom right;
+  background-size: contain;
 }
 body {
   font-family: 'Montserrat' , sans-serif;
@@ -30,10 +31,10 @@ html{
 }
 
 .pres-bg{
-  background-image: url("../public/images/cs2bg1.png");
+  background-image: url("../public/images/cs2bg1.webp");
   background-repeat: no-repeat;
-  background-position: center;
-  /* background-size: contain; */
+  background-position: top center;
+  background-size: contain;
 }
 .bg-lined{
   background-image: url("../public/images/Line.svg");
