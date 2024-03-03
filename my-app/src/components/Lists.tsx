@@ -80,12 +80,21 @@ export function Lists() {
                     <span className="text-4xl flex font-semibold mt-[24px] x:text-3xl text-left">
                       Какие будут призы?
                     </span>
+                    <Transition 
+                        enter="transition duration-300 ease-out"
+                        enterFrom="transform scale-95 opacity-0"
+                        enterTo="transform scale-100 opacity-100"
+                        leave="transition duration-75 ease-out"
+                        leaveFrom="transform scale-100 opacity-100"
+                        leaveTo="transform scale-95 opacity-0"
+                    >
                     <Disclosure.Panel>
                       <p className="flex text-4xl text-[#1F1F25] mt-[24px] text-left x:text-3xl xm:text-xl">
                         Призом турнира будет сертификат с особой
                         внутриколледжной привилегией
                       </p>
                     </Disclosure.Panel>
+                    </Transition>
                   </Disclosure.Button>
                 </div>
               )}
@@ -114,11 +123,20 @@ export function Lists() {
                     <span className="text-4xl flex font-semibold mt-[24px] x:text-3xl text-left">
                       Новости
                     </span>
+                    <Transition 
+                        enter="transition duration-300 ease-out"
+                        enterFrom="transform scale-95 opacity-0"
+                        enterTo="transform scale-100 opacity-100"
+                        leave="transition duration-75 ease-out"
+                        leaveFrom="transform scale-100 opacity-100"
+                        leaveTo="transform scale-95 opacity-0"
+                    >
                     <Disclosure.Panel>
                       <p className="flex text-4xl text-[#1F1F25] mt-[24px] text-left x:text-3xl xm:text-xl">
                         Следите за новостями в наших телеграм и дискорд каналах
                       </p>
                     </Disclosure.Panel>
+                    </Transition>
                   </Disclosure.Button>
                 </div>
               )}
