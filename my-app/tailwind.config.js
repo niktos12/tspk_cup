@@ -19,9 +19,10 @@ module.exports = {
       'sm': {'max': '768px'},
       'm':{'max': '650px'},
       'xm':{'max': '535px'},
-      'xs':{'max':'463px'},
-      'xss':{'max':'418px'},
-      'megax':{'max':'375px'},
+      'xs':{'max':'493px'},
+      'xss':{'max':'445px'},
+      'megax':{'max':'401px'},
+      'f':{'max': '370px'},
       'fx':{'max': '361px'},
     },
     extend: {
