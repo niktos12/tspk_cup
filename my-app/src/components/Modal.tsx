@@ -172,7 +172,7 @@ const Modal = () => {
                     <option
                       key={id}
                       value={item.group}
-                      className="focus:bg-[#3773FF] checked:bg-[#3773FF] checked:text-[#3773FF] text-[#3773FF] font-black"
+                      className="focus:bg-[#3773FF] focus:text-[#FFFFFF] checked:bg-[#3773FF] checked:text-[#FFFFFF] text-[#3773FF] font-black hover:bg-[#3773FF] hover:text-[#3773FF] cursor-pointer"
                     >
                       {item.group}
                     </option>
