@@ -10,6 +10,7 @@ import { AxiosError, AxiosResponse } from "axios";
 import toast from "react-hot-toast";
 import classNames from "classnames";
 import { FaSpinner } from "react-icons/fa";
+// import Policy from './policy.pdf';
 
 const tg = z
   .string()
@@ -208,12 +209,13 @@ const Modal = () => {
                 )}
               </button>
               <p className="xm:text-sm text-[#3773FF]">
-                Нажимая "Отправить", вы принимаете политику хранения и обработки{" "}
+                Нажимая "Отправить", вы принимаете {" "}
                 <a
-                  href="https://piybeep.com/privacy_policy.pdf"
+                  href='https://turquoise-daffy-49.tiiny.site'
                   className="underline"
+                  target="_blank"
                 >
-                  персональных данных
+                  политику хранения и обработки персональных данных
                 </a>
               </p>
             </div>
