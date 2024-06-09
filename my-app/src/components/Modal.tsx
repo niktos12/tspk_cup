@@ -209,9 +209,9 @@ const Modal = () => {
                 )}
               </button>
               <p className="xm:text-sm text-[#3773FF]">
-                Нажимая "Отправить", вы принимаете {" "}
+                Нажимая "Отправить", вы принимаете{" "}
                 <a
-                  href='https://turquoise-daffy-49.tiiny.site'
+                  href="https://turquoise-daffy-49.tiiny.site"
                   className="underline"
                   target="_blank"
                 >

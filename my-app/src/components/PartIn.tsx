@@ -26,17 +26,21 @@ export function PartIn() {
           Участвовать
         </button>
         <div className="flex flex-row gap-3 x:items-center x:justify-center ">
-          <a href="https://t.me/tspkcup" target="_blank" className="flex items-center bg-[#D4E1FF] p-4 w-[100px] h-[100px] rounded-3xl cursor-pointer duration-300 hover:text-[#3773FF] hover:rounded-full hover:scale-90 
-                                sm:w-[80px] sm:h-[80px]">
-            <FaTelegramPlane
-              className="w-full h-full"
-            />
+          <a
+            href="https://t.me/tspkcup"
+            target="_blank"
+            className="flex items-center bg-[#D4E1FF] p-4 w-[100px] h-[100px] rounded-3xl cursor-pointer duration-300 hover:text-[#3773FF] hover:rounded-full hover:scale-90 
+                                sm:w-[80px] sm:h-[80px]"
+          >
+            <FaTelegramPlane className="w-full h-full" />
           </a>
-          <a href="https://discord.gg/B4tpJBSzfH" target="_blank" className="flex items-center bg-[#D4E1FF] p-4 w-[100px] h-[100px] rounded-3xl cursor-pointer duration-300 hover:text-[#3773FF] hover:rounded-full hover:scale-90 
-                            sm:w-[80px] sm:h-[80px]">
-            <FaDiscord
-              className="w-full h-full"
-            />
+          <a
+            href="https://discord.gg/B4tpJBSzfH"
+            target="_blank"
+            className="flex items-center bg-[#D4E1FF] p-4 w-[100px] h-[100px] rounded-3xl cursor-pointer duration-300 hover:text-[#3773FF] hover:rounded-full hover:scale-90 
+                            sm:w-[80px] sm:h-[80px]"
+          >
+            <FaDiscord className="w-full h-full" />
           </a>
         </div>
       </div>

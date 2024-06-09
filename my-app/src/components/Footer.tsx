@@ -10,7 +10,11 @@ export function Footer() {
       </p>
       <div className="gap-6 flex flex-row items-center md:flex-col md:gap-3 md:items-start md:gap-2">
         <div className="flex flex-col gap-1 md:flex-row md:gap-3 m:flex-col m:gap-1">
-          <a href="https://turquoise-daffy-49.tiiny.site" target="_blank" className="underline hover:text-[#3773FF]">
+          <a
+            href="https://turquoise-daffy-49.tiiny.site"
+            target="_blank"
+            className="underline hover:text-[#3773FF]"
+          >
             Политика конфиденциальности
           </a>
           <a
@@ -64,7 +68,11 @@ export function Footer() {
           </p>
           <p className="#1F1F25">
             Backend dev{" "}
-            <a href="https://t.me/Eann1S" className="underline hover:text-[#3773FF]" target="_blank">
+            <a
+              href="https://t.me/Eann1S"
+              className="underline hover:text-[#3773FF]"
+              target="_blank"
+            >
               Danila Ponomarev
             </a>
           </p>
